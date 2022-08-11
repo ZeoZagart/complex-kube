@@ -11,11 +11,11 @@ script:
 
 after_success:
   - docker build -t zeozagart/multi-client ./client
-  - docker build -t multi-nginx ./ngixn
-  - docker build -t multi-server ./server
-  - docker build -t multi-worker ./worker
+  - docker build -t zeozagart/multi-nginx ./ngixn
+  - docker build -t zeozagart/multi-server ./server
+  - docker build -t zeozagart/multi-worker ./worker
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
-  - docker push -t zeozagart/multi-client
-  - docker push -t zeozagart/multi-nginx
-  - docker push -t zeozagart/multi-server
-  - docker push -t zeozagart/multi-worker
+  - docker push zeozagart/multi-client
+  - docker push zeozagart/multi-nginx
+  - docker push zeozagart/multi-server
+  - docker push zeozagart/multi-worker
