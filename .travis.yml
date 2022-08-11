@@ -11,7 +11,7 @@ script:
 
 after_success:
   - docker build -t zeozagart/multi-client ./client
-  - docker build -t zeozagart/multi-nginx ./ngixn
+  - docker build -t zeozagart/multi-nginx ./nginx
   - docker build -t zeozagart/multi-server ./server
   - docker build -t zeozagart/multi-worker ./worker
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
