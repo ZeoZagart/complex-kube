@@ -19,3 +19,15 @@ after_success:
   - docker push zeozagart/multi-nginx
   - docker push zeozagart/multi-server
   - docker push zeozagart/multi-worker
+
+deploy:
+  provider: elasticbeanstalk
+  region: "us-east-1"
+  app: "multi-docker"
+  env: "Multidocker-env-1"
+  bucket_name: "elasticbeanstalk-us-east-1-550610942901"
+  bucket_path: "complex"
+  on:
+    branch: master
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key: $AWS_SECRET_KEY
